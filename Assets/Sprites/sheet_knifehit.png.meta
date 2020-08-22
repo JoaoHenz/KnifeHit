@@ -13,13 +13,13 @@ TextureImporter:
     second: sheet_knifehit_2
   - first:
       213: -1299840088960605819
-    second: sheet_knifehit_3
+    second: logo_mainmenu
   - first:
       213: 2303169060181731655
     second: boss
   - first:
       213: -7910261716092428819
-    second: apple
+    second: apple_icon
   - first:
       213: 4536925911271733616
     second: empty_knife
@@ -28,10 +28,10 @@ TextureImporter:
     second: full_knife
   - first:
       213: 7036356046370694078
-    second: sheet_knifehit_8
+    second: home
   - first:
       213: -326011932411590395
-    second: sheet_knifehit_9
+    second: upgrade
   - first:
       213: 345718321612467301
     second: wood_target
@@ -41,6 +41,87 @@ TextureImporter:
   - first:
       213: 8050353790009845755
     second: cool_knife
+  - first:
+      213: 2125460572331288437
+    second: sheet_knifehit_13
+  - first:
+      213: 8648005764675016750
+    second: sheet_knifehit_14
+  - first:
+      213: 4701861058705359212
+    second: present
+  - first:
+      213: -8434079244078514018
+    second: sheet_knifehit_16
+  - first:
+      213: 3481466904897522668
+    second: tomato
+  - first:
+      213: 9054860103973432932
+    second: sheet_knifehit_18
+  - first:
+      213: 2018155101743756320
+    second: sheet_knifehit_19
+  - first:
+      213: -4464254949905273694
+    second: sheet_knifehit_20
+  - first:
+      213: -8509768628199454293
+    second: options
+  - first:
+      213: -5804012127289496723
+    second: challengs
+  - first:
+      213: -4974488197869855503
+    second: play
+  - first:
+      213: -3091040716872110112
+    second: diamond
+  - first:
+      213: -5670175266118925105
+    second: sheet_knifehit_25
+  - first:
+      213: -3181326094642782464
+    second: sheet_knifehit_26
+  - first:
+      213: -4450572509335379191
+    second: sheet_knifehit_27
+  - first:
+      213: 8381416338658944199
+    second: sheet_knifehit_28
+  - first:
+      213: -444501406461218782
+    second: star
+  - first:
+      213: -4250720513141642529
+    second: sheet_knifehit_30
+  - first:
+      213: -7289346286008061029
+    second: sheet_knifehit_31
+  - first:
+      213: 6416718147460154336
+    second: record
+  - first:
+      213: -4507526738337014767
+    second: sheet_knifehit_33
+  - first:
+      213: -5437741601498104139
+    second: sheet_knifehit_34
+  - first:
+      213: -8988769801917499823
+    second: stage
+  - first:
+      213: -4340008513655257430
+    second: sheet_knifehit_36
+  - first:
+      213: 450561369714938042
+    second: watchvideo
+  - first:
+      213: -1730588118183949904
+    second: restart
+  - first:
+      213: -2051677287549310108
+    second: sheet_knifehit_39
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -146,7 +227,7 @@ TextureImporter:
         width: 26
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,7 +248,7 @@ TextureImporter:
         width: 23
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,7 +269,7 @@ TextureImporter:
         width: 51
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,7 +282,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: apple
+      name: apple_icon
       rect:
         serializedVersion: 2
         x: 364
@@ -209,7 +290,7 @@ TextureImporter:
         width: 63
         height: 73
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,7 +311,7 @@ TextureImporter:
         width: 43
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -251,7 +332,7 @@ TextureImporter:
         width: 45
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,7 +353,7 @@ TextureImporter:
         width: 468
         height: 466
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -293,7 +374,7 @@ TextureImporter:
         width: 63
         height: 296
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -314,7 +395,7 @@ TextureImporter:
         width: 72
         height: 291
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -322,6 +403,468 @@ TextureImporter:
       bones: []
       spriteID: bf7a1c19e1a98bf60800000000000000
       internalID: 8050353790009845755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_knifehit_2
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1040
+        width: 94
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 466446b8cf0565680800000000000000
+      internalID: -8766730579029506460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_knifehit_13
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 980
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 577a7ed11272f7d10800000000000000
+      internalID: 2125460572331288437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_knifehit_16
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 901
+        width: 85
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e908439fc9124fa80800000000000000
+      internalID: -8434079244078514018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: options
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 806
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba98863f48a37e980800000000000000
+      internalID: -8509768628199454293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: challengs
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 797
+        width: 142
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ba9d0a8b1047fa0800000000000000
+      internalID: -5804012127289496723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: play
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 797
+        width: 141
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc189a075117fab0800000000000000
+      internalID: -4974488197869855503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diamond
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 740
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0efa19458da6a15d0800000000000000
+      internalID: -3091040716872110112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_knifehit_25
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 717
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc486c823ad7f41b0800000000000000
+      internalID: -5670175266118925105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: star
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 678
+        width: 40
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 220b7bd6350d4d9f0800000000000000
+      internalID: -444501406461218782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_knifehit_30
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 704
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdae9bee6386205c0800000000000000
+      internalID: -4250720513141642529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_knifehit_31
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 707
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b933da96c2a07da90800000000000000
+      internalID: -7289346286008061029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: record
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 680
+        width: 45
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e34a2b6823cc0950800000000000000
+      internalID: 6416718147460154336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 434
+        width: 303
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156f2fc5d79714380800000000000000
+      internalID: -8988769801917499823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_knifehit_36
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 88
+        width: 93
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6486d404135c3c0800000000000000
+      internalID: -4340008513655257430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watchvideo
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 313
+        width: 163
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab05f57bd27b04600800000000000000
+      internalID: 450561369714938042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 215
+        width: 162
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b9422b8647bbf7e0800000000000000
+      internalID: -1730588118183949904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_mainmenu
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 918
+        width: 283
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581e0b0735a06fde0800000000000000
+      internalID: -1299840088960605819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: home
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 883
+        width: 89
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb3e8114b8826a160800000000000000
+      internalID: 7036356046370694078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrade
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 674
+        width: 46
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5098110ffd5c97bf0800000000000000
+      internalID: -326011932411590395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_knifehit_14
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 667
+        width: 66
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e281cf28c63e30870800000000000000
+      internalID: 8648005764675016750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: present
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 671
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c61006ba8bd504140800000000000000
+      internalID: 4701861058705359212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 271
+        width: 466
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb02b354b7a05030800000000000000
+      internalID: 3481466904897522668
       vertices: []
       indices: 
       edges: []
