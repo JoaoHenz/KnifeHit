@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 1083114242}
   - component: {fileID: 207742423}
   m_Layer: 0
-  m_Name: Stage Transform
+  m_Name: Target Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,16 +669,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageDatabase: {fileID: 11400000, guid: 07b729b277f11584ab5d9c4efad97305, type: 2}
+  TargetRadius: 1.6
   _appleScore: 2
   _goldenAppleScore: 4
-  _stagePrefab: {fileID: 8536821382861006301, guid: 8352ee8027753f541bbe0fd2ad3ab165,
-    type: 3}
   _knivesThrownUI: {fileID: 429147592}
   _stageKnivesUI: {fileID: 729501120}
   _stageProgressionUI: {fileID: 1083114241}
   _knifeThrower: {fileID: 1736887422}
   _knifeTransform: {fileID: 353528600}
-  _stageTransform: {fileID: 1083114242}
+  _targetTransform: {fileID: 1083114242}
 --- !u!4 &566716157
 Transform:
   m_ObjectHideFlags: 0
@@ -1129,6 +1128,7 @@ MonoBehaviour:
   _knifePrefab: {fileID: 3163366860684130704, guid: f3393d20948c0fa4c9231aef759819d3,
     type: 3}
   _knifeTransform: {fileID: 353528600}
+  _targetTransform: {fileID: 0}
 --- !u!114 &1736887423
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ namespace KnifeHit
         {
             index--;
 
-            if (index > Stages.Length)
+            if (index > Stages.Length-1)
                 return Stages[Random.Range(0, Stages.Length)];
             else
                 return Stages[index];
@@ -24,7 +24,7 @@ namespace KnifeHit
         {
             index--;
 
-            if (index > BossStages.Length)
+            if (index > BossStages.Length-1)
                 return BossStages[Random.Range(0, BossStages.Length)];
             else
                 return BossStages[index];

@@ -133,10 +133,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45db084f1fcd714ebc4e7cf0812f672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Knives: 15
+  _testItems: 0
+  Knives: 5
   ApplePositions: 
   GoldenApplePositions: 
-  KnifePositions: 
+  KnifePositions: 11000000
   TargetSprite: {fileID: 345718321612467301, guid: 9951d92b84e026f429e632e773ac0c7a,
     type: 3}
   Name: 
+  _applePrefab: {fileID: 3309938239737531595, guid: 17f8c843c2b92414aa36bde5eee096eb,
+    type: 3}
+  _goldenApplePrefab: {fileID: 7461011310185738332, guid: 2a4d6847996091c47bb4d5375d567446,
+    type: 3}
+  _knifePrefab: {fileID: 3163366860684130704, guid: f3393d20948c0fa4c9231aef759819d3,
+    type: 3}

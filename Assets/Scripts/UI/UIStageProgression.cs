@@ -7,6 +7,7 @@ namespace KnifeHit
 {
     public class UIStageProgression : MonoBehaviour
     {
+        #pragma warning disable 0649
         [SerializeField] Image[] _stageDots;
         [SerializeField] Image _boss;
         [SerializeField] Text _title;
@@ -14,7 +15,7 @@ namespace KnifeHit
         [SerializeField] Sprite _fullStage;
         [SerializeField] Sprite _emptyBoss;
         [SerializeField] Sprite _fullBoss;
-
+        #pragma warning restore 0649
 
         public void HandleStageStart(int stageCount, int currentStage, string bossName)
         {

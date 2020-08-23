@@ -10,7 +10,7 @@ TextureImporter:
     second: stage_unfilled
   - first:
       213: -8766730579029506460
-    second: sheet_knifehit_2
+    second: apple
   - first:
       213: -1299840088960605819
     second: logo_mainmenu
@@ -58,7 +58,7 @@ TextureImporter:
     second: tomato
   - first:
       213: 9054860103973432932
-    second: sheet_knifehit_18
+    second: goldenapple
   - first:
       213: 2018155101743756320
     second: sheet_knifehit_19
@@ -408,13 +408,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_knifehit_2
+      name: apple
       rect:
         serializedVersion: 2
         x: 520
         y: 1040
         width: 94
-        height: 81
+        height: 110
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -857,7 +857,7 @@ TextureImporter:
         width: 466
         height: 470
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -865,6 +865,27 @@ TextureImporter:
       bones: []
       spriteID: ceb02b354b7a05030800000000000000
       internalID: 3481466904897522668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldenapple
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 1034
+        width: 99
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e61343a4359ad70800000000000000
+      internalID: 9054860103973432932
       vertices: []
       indices: 
       edges: []

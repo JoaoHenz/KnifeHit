@@ -4,23 +4,29 @@ using UnityEngine;
 
 namespace KnifeHit
 {
-    public class Knife : MonoBehaviour
+    public class Knife : PoolableObject
     {
         public bool Thrown = false;
+        public bool OnTarget = true;
 
-        private Collider2D _collider;
         private Rigidbody2D _rigidBody;
 
-        private void Awake()
+        public override void OnRePool()
         {
-            _rigidBody = GetComponent<Rigidbody2D>();
-            _collider = GetComponent<Collider2D>();
+            Thrown = false;
+            OnTarget = true;
         }
 
         public void Throw()
         {
             _rigidBody.velocity = new Vector2(0f,50f);
             Thrown = true;
+            OnTarget = false;
+        }
+
+        private void Awake()
+        {
+            _rigidBody = GetComponent<Rigidbody2D>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +34,6 @@ namespace KnifeHit
             if (collision.gameObject.GetComponent<Knife>() && collision.gameObject.GetComponent<Knife>().Thrown && Thrown)
                 Game.GameOver();
         }
-
     }
 }
 

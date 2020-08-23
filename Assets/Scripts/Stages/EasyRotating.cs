@@ -4,9 +4,15 @@ using UnityEngine;
 
 namespace KnifeHit
 {
-    //sandbox superclass design pattern
+    /// <summary>
+    /// Sandbox subclass of Stage
+    /// </summary>
     public class EasyRotating : Stage
     {
+        /// <summary>
+         /// Sandbox method where stage defines the target behaviour
+         /// </summary>
+         /// <returns></returns>
         protected override IEnumerator TargetBehaviour()
         {
             _rigidBody.angularDrag = 0;

@@ -7,13 +7,15 @@ namespace KnifeHit
 {
     public class UIStageKnives : MonoBehaviour
     {
+        #pragma warning disable 0649
         [SerializeField] private GameObject _knifeIcon;
         [SerializeField] private Sprite _fullKnifeIcon;
         [SerializeField] private Sprite _emptyKnifeIcon;
+        #pragma warning restore 0649
 
         private float _nextKnifeVertDist = 60;
         private int _knifeIndex = 0;
-        private List<GameObject> _iconList = new List<GameObject>();
+        private List<GameObject> _iconList;
 
         public void HandleStageStart(int stageKnives)
         {
@@ -24,6 +26,7 @@ namespace KnifeHit
                     Destroy(icon);
                 }
             }
+            _iconList = new List<GameObject>();
 
             int i;
             for(i = 0; i < stageKnives; i++)

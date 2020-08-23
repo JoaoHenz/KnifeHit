@@ -116,7 +116,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -134,10 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9ee045652739346b82f3f088ff84df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Knives: 13
+  _testItems: 0
+  Knives: 5
   ApplePositions: 
   GoldenApplePositions: 
-  KnifePositions: 
+  KnifePositions: 0a000000
   TargetSprite: {fileID: 3481466904897522668, guid: 9951d92b84e026f429e632e773ac0c7a,
     type: 3}
   Name: Tomato for Dummies
+  _applePrefab: {fileID: 3309938239737531595, guid: 17f8c843c2b92414aa36bde5eee096eb,
+    type: 3}
+  _goldenApplePrefab: {fileID: 7461011310185738332, guid: 2a4d6847996091c47bb4d5375d567446,
+    type: 3}
+  _knifePrefab: {fileID: 3163366860684130704, guid: f3393d20948c0fa4c9231aef759819d3,
+    type: 3}

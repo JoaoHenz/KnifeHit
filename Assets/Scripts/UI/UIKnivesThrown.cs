@@ -7,7 +7,9 @@ namespace KnifeHit
 {
     public class UIKnivesThrown : MonoBehaviour
     {
-        [SerializeField] Text _knivesText;
+        #pragma warning disable 0649
+        [SerializeField] private Text _knivesText;
+        #pragma warning restore 0649
 
         private void Awake()
         {

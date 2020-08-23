@@ -11,25 +11,19 @@ namespace KnifeHit
     {
         private int _appleScore;
 
-        private void OnEnable()
-        {
-            InitializePlayerPrefs();
-        }
-
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
 
             GUILayout.Space(20);
             EditorGUILayout.LabelField("Edit Player Prefs", EditorStyles.boldLabel);
-            EditorGUI.indentLevel = (EditorGUI.indentLevel + 1);
-
+            EditorGUI.indentLevel += 1;
 
             _appleScore = EditorGUILayout.IntField("Apple Score: ", _appleScore);
 
             if (GUILayout.Button("Set Player Prefs"))
             {
-                PlayerPrefs.SetInt("Apple Score",_appleScore);
+                PlayerPrefs.SetInt("Apple Score", _appleScore);
             }
 
             if (GUILayout.Button("Reset Player Prefs"))
@@ -37,6 +31,11 @@ namespace KnifeHit
                 PlayerPrefs.SetInt("Apple Score", 0);
                 _appleScore = 0;
             }
+        }
+
+        private void OnEnable()
+        {
+            InitializePlayerPrefs();
         }
 
         private void InitializePlayerPrefs()
@@ -51,10 +50,15 @@ namespace KnifeHit
         }
     }
 
+    /// <summary>
+    /// Mediator for the SessionScene
+    /// </summary>
     public class Session : MonoBehaviour
     {
+        #pragma warning disable 0649
         [SerializeField] private UIApplesCounter _applesCounterUI;
         [SerializeField] private GameObject _gameOverScreen;
+        #pragma warning restore 0649
 
         private int _appleScore;
         private Coroutine _gameOverCoroutine;
@@ -65,9 +69,12 @@ namespace KnifeHit
             set
             {
                 _instance._applesCounterUI.SetApplesCount(value);
+                PlayerPrefs.SetInt("Apple Score", value);
                 _instance._appleScore = value;
             }
         }
+
+        static public bool GameIsOver { get {return (_instance._gameOverCoroutine != null); } }
 
         #region singleton
         private static Session _instance;
@@ -80,17 +87,9 @@ namespace KnifeHit
         }
         #endregion
 
-        private void Awake()
-        {
-            SingletonAwake();
-
-            if(PlayerPrefs.HasKey("Apple Score"))
-                AppleScore = PlayerPrefs.GetInt("Apple Score");
-        }
-
         public static void GameOver()
         {
-            if(_instance._gameOverCoroutine == null)
+            if (_instance._gameOverCoroutine == null)
                 _instance._gameOverCoroutine = _instance.StartCoroutine(GameOverSequence());
         }
 
@@ -99,13 +98,20 @@ namespace KnifeHit
             SceneManager.UnloadSceneAsync("GameScene");
             _instance._gameOverScreen.SetActive(true);
             yield return new WaitForSeconds(3f);
-            SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
-            while(SceneManager.sceneCount<2)
+            SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
+            while (SceneManager.sceneCount < 2)
                 yield return new WaitForSeconds(0.25f);
             _instance._gameOverScreen.SetActive(false);
 
             _instance._gameOverCoroutine = null;
         }
 
+        private void Awake()
+        {
+            SingletonAwake();
+
+            if(PlayerPrefs.HasKey("Apple Score"))
+                AppleScore = PlayerPrefs.GetInt("Apple Score");
+        }
     }
 }

@@ -7,12 +7,16 @@ using UnityEngine.SceneManagement;
 
 namespace KnifeHit
 {
+    /// <summary>
+    /// Mediator for the GameScene
+    /// </summary>
     public class Game : MonoBehaviour
     {
         public static bool IsPaused = true;
         public StageDatabase StageDatabase;
         public float TargetRadius = 1.6f;
 
+        #pragma warning disable 0649
         [SerializeField] private int _appleScore = 2;
         [SerializeField] private int _goldenAppleScore = 4;
         [SerializeField] private UIKnivesThrown _knivesThrownUI;
@@ -21,6 +25,7 @@ namespace KnifeHit
         [SerializeField] private KnifeThrower _knifeThrower;
         [SerializeField] private Transform _knifeTransform;
         [SerializeField] private Transform _targetTransform;
+        #pragma warning restore 0649
 
         private int _normalStageIndex = 1;
         private int _bossStageIndex = 0;
@@ -52,10 +57,22 @@ namespace KnifeHit
             _instance._stageKnivesUI.HandleThrowKnife();
         }
 
-        public static void OnHitTarget(GameObject knifeObject)
+        public static void OnStageEnd()
         {
-            knifeObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            knifeObject.transform.parent = _instance._currentStage.transform;
+            if (Session.GameIsOver)
+                return;
+
+            IsPaused = true;
+
+            List<Transform> children = new List<Transform>();
+            foreach(Transform child in _instance._currentStage.transform.Find("Player Knives"))
+                children.Add(child);
+
+            foreach(Transform child in children)
+                PoolManager.RePool(child);
+
+            Destroy(_instance._currentStage.gameObject);
+            _instance.PlayNextStage();
         }
 
         private void Awake()
@@ -92,7 +109,7 @@ namespace KnifeHit
                 _normalStageIndex++;
             }
 
-            Game.IsPaused = false;
+            IsPaused = false;
         }
 
         private void OnStageStart(Stage stage,int stageCount, int currentStageIndex)
@@ -108,7 +125,6 @@ namespace KnifeHit
             _currentStage = instance.GetComponent<Stage>();
             _currentStage.StageStart(currentStageIndex);
             instance.transform.position = _targetTransform.position;
-
         }
         
     }

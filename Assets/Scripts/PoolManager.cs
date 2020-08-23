@@ -55,6 +55,36 @@ namespace KnifeHit
             return objectPool.PooledObjects[objectPool.Index];
         }
 
+        /// <summary>
+        /// Put object back in the pool
+        /// </summary>
+        /// <param name="gameObject"></param>
+        public static void RePool(GameObject obj)
+        {
+            Transform objTransform = obj.transform;
+
+            objTransform.parent = _instance.transform.Find("Object Pools").Find(objTransform.name);
+            objTransform.localPosition = Vector3.zero;
+            objTransform.localScale = Vector3.one;
+            objTransform.localEulerAngles = Vector3.zero;
+            objTransform.GetComponent<PoolableObject>().OnRePool();
+            objTransform.gameObject.SetActive(false);
+        }
+
+        /// <summary>
+        /// Put object back in the pool
+        /// </summary>
+        /// <param name="gameObject"></param>
+        public static void RePool(Transform objTransform)
+        {
+            objTransform.parent = _instance.transform.Find("Object Pools").Find(objTransform.name);
+            objTransform.localPosition = Vector3.zero;
+            objTransform.localScale = Vector3.one;
+            objTransform.localEulerAngles = Vector3.zero;
+            objTransform.GetComponent<PoolableObject>().OnRePool();
+            objTransform.gameObject.SetActive(false);
+        }
+
         private void Awake()
         {
             SingletonAwake();
@@ -64,6 +94,11 @@ namespace KnifeHit
 
             foreach(ObjectPoolEntry entry in ObjectPoolEntries)
             {
+                if (!entry.GameObject.GetComponent<PoolableObject>())
+                {
+                    Debug.LogError(entry.GameObject.name+" must have the PoolableObject class!");
+                    return;
+                }
                 GameObject pool = new GameObject();
                 pool.transform.parent = objectPools.transform;
                 pool.name = entry.GameObject.name;
@@ -73,7 +108,10 @@ namespace KnifeHit
 
                 for (int i = 0; i < entry.Amount; i++)
                 {
-                    objectList.Add(Instantiate(entry.GameObject, pool.transform));
+                    GameObject pooledObject = Instantiate(entry.GameObject, pool.transform);
+                    pooledObject.SetActive(false);
+                    pooledObject.name = entry.GameObject.name;
+                    objectList.Add(pooledObject);
                 }
 
                 objectPool.PooledObjects = objectList;

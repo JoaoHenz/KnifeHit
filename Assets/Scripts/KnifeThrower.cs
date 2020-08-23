@@ -7,9 +7,11 @@ namespace KnifeHit
 {
     public class KnifeThrower : MonoBehaviour
     {
-        [SerializeField] GameObject _knifePrefab;
-        [SerializeField] Transform _knifeTransform;
-        [SerializeField] Transform _targetTransform;
+        #pragma warning disable 0649
+        [SerializeField] private GameObject _knifePrefab;
+        [SerializeField] private Transform _knifeTransform;
+        [SerializeField] private Transform _targetTransform;
+        #pragma warning restore 0649
 
         private int _knives = 0;
         private Knife _currentKnife;
