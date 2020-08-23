@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace KnifeHit
 {
@@ -10,7 +11,7 @@ namespace KnifeHit
         [SerializeField] private Sprite _fullKnifeIcon;
         [SerializeField] private Sprite _emptyKnifeIcon;
 
-        private float _nextKnifeVertDist = 61f;
+        private float _nextKnifeVertDist = 7354f;
         private int _knifeIndex = 0;
         private List<GameObject> _iconList;
 
@@ -37,7 +38,7 @@ namespace KnifeHit
 
         public void HandleThrowKnife()
         {
-            _iconList[_knifeIndex].GetComponent<SpriteRenderer>().sprite = _emptyKnifeIcon;
+            _iconList[_knifeIndex].GetComponent<Image>().sprite = _emptyKnifeIcon;
             _knifeIndex--;
         }
     }

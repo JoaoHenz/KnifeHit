@@ -10,13 +10,17 @@ namespace KnifeHit
         public PoolManager PoolManager;
         public StageDatabase StageDatabase;
         public bool GameIsPaused;
+        [NonSerialized] public int StagesCycle;
 
-        UIApplesCounter _applesCounterUI;
         [SerializeField] UIKnivesThrown _knivesThrownUI;
         [SerializeField] UIStageKnives _stageKnivesUI;
         [SerializeField] UIStageProgression _stageProgressionUI;
+        [SerializeField] int _appleScore = 2;
+        [SerializeField] int _goldenAppleScore = 4;
 
-        private int _currentStage = 0;
+        private UIApplesCounter _applesCounterUI;
+        private int _normalStage = 0;
+        private int _bossStage = 0;
 
         #region singleton
         private static Game _instance;
@@ -41,13 +45,31 @@ namespace KnifeHit
 
         private void Start()
         {
-            OnStageStart(1);
+            _normalStage = 1;
+            _bossStage = 1;
+            PlayNextStage();
         }
 
-        private void OnStageStart(int stageKnives)
+        private void PlayNextStage()
         {
-            _stageProgressionUI.HandleStageStart();
-            _stageKnivesUI.HandleStageStart(stageKnives);
+            int currentStage = _normalStage + _bossStage;
+
+            if (currentStage % StagesCycle > 0) //normal stage
+            {
+                OnStageStart(StageDatabase.GetStage(_normalStage).GetComponent<Stage>(), currentStage % StagesCycle, currentStage);
+                _normalStage++;
+            }
+            else //boss
+            {
+                OnStageStart(StageDatabase.GetBossStage(_bossStage).GetComponent<Stage>(), StagesCycle, currentStage);
+                _bossStage++;
+            }
+        }
+
+        private void OnStageStart(Stage stage,int stageCount, int currentStage)
+        {
+            _stageProgressionUI.HandleStageStart(stageCount,currentStage,stage.Name);
+            _stageKnivesUI.HandleStageStart(stage.Knives);
         }
     }
 }
