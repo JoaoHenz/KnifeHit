@@ -12,6 +12,8 @@ namespace KnifeHit
 
         public GameObject GetStage(int index)
         {
+            index--;
+
             if (index > Stages.Length)
                 return Stages[Random.Range(0, Stages.Length)];
             else
@@ -20,6 +22,8 @@ namespace KnifeHit
 
         public GameObject GetBossStage(int index)
         {
+            index--;
+
             if (index > BossStages.Length)
                 return BossStages[Random.Range(0, BossStages.Length)];
             else

@@ -19,6 +19,12 @@ namespace KnifeHit
         protected Rigidbody2D _rigidBody;
         protected Collider2D _collider;
 
+        private void Awake()
+        {
+            _rigidBody = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<Collider2D>();
+        }
+
         private void OnValidate()
         {
             GetComponent<SpriteRenderer>().sprite = TargetSprite;
@@ -27,7 +33,7 @@ namespace KnifeHit
         public void StageStart(int currentStage)
         {
             _currentStage = currentStage;
-            _collider = GetComponent<Collider2D>();
+            gameObject.name = "Target";
             StartCoroutine(TargetBehaviour());
         }
 
@@ -43,7 +49,6 @@ namespace KnifeHit
 
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             collision.transform.parent = transform;
-            collision.gameObject.GetComponent<Knife>().OnCollideTarget();
         }
     }
 }

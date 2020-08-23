@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Stage Database
   m_EditorClassIdentifier: 
   Stages:
+  - {fileID: 7186772770957383058, guid: bff979da96afa53439274510ece027cd, type: 3}
   - {fileID: 1125296641865912263, guid: ec3a8615250825844b95f689b78dbf64, type: 3}
   - {fileID: 5870708309283359004, guid: 28292fe9f74f5ea4d9bf598056635e32, type: 3}
-  - {fileID: 7186772770957383058, guid: bff979da96afa53439274510ece027cd, type: 3}
   BossStages:
-  - {fileID: 3599637203192826818, guid: 4887076caf5c3cb478eb71ff2fe0dd47, type: 3}
-  - {fileID: 5636126197846272186, guid: 9b99efbe5c34fd842b79590ea149f3ed, type: 3}
-  - {fileID: 6349239532105978282, guid: ddcc783dc9a20514a94dbc9b2d09f8d6, type: 3}
+  - {fileID: 7186772770957383058, guid: bff979da96afa53439274510ece027cd, type: 3}
+  - {fileID: 1125296641865912263, guid: ec3a8615250825844b95f689b78dbf64, type: 3}
+  - {fileID: 5870708309283359004, guid: 28292fe9f74f5ea4d9bf598056635e32, type: 3}

@@ -9,6 +9,11 @@ namespace KnifeHit
     {
         [SerializeField] Text _knivesText;
 
+        private void Awake()
+        {
+            SetKnivesCount(0);
+        }
+
         public void SetKnivesCount(int knivesCount)
         {
             _knivesText.text = knivesCount.ToString();

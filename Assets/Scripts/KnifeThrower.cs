@@ -9,6 +9,7 @@ namespace KnifeHit
     {
         [SerializeField] GameObject _knifePrefab;
         [SerializeField] Transform _knifeTransform;
+        [SerializeField] Transform _targetTransform;
 
         private int _knives = 0;
         private Knife _currentKnife;
@@ -25,7 +26,9 @@ namespace KnifeHit
             if (_knives == 0 || Game.IsPaused)
                 return;
 
+            _knives--;
             _currentKnife.GetComponent<Knife>().Throw();
+            Game.OnThrowKnife();
 
             CreateKnife();
         }

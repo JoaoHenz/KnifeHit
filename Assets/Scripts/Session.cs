@@ -9,7 +9,12 @@ namespace KnifeHit
     [CustomEditor(typeof(Session))]
     public class SessionEditor : Editor
     {
-        private int _appleScore = 0;
+        private int _appleScore;
+
+        private void OnEnable()
+        {
+            InitializePlayerPrefs();
+        }
 
         public override void OnInspectorGUI()
         {
@@ -18,6 +23,7 @@ namespace KnifeHit
             GUILayout.Space(20);
             EditorGUILayout.LabelField("Edit Player Prefs", EditorStyles.boldLabel);
             EditorGUI.indentLevel = (EditorGUI.indentLevel + 1);
+
 
             _appleScore = EditorGUILayout.IntField("Apple Score: ", _appleScore);
 
@@ -29,6 +35,18 @@ namespace KnifeHit
             if (GUILayout.Button("Reset Player Prefs"))
             {
                 PlayerPrefs.SetInt("Apple Score", 0);
+                _appleScore = 0;
+            }
+        }
+
+        private void InitializePlayerPrefs()
+        {
+            if (PlayerPrefs.HasKey("Apple Score"))
+                _appleScore = PlayerPrefs.GetInt("Apple Score");
+            else
+            {
+                PlayerPrefs.SetInt("Apple Score", 0);
+                _appleScore = PlayerPrefs.GetInt("Apple Score");
             }
         }
     }
@@ -39,6 +57,7 @@ namespace KnifeHit
         [SerializeField] private GameObject _gameOverScreen;
 
         private int _appleScore;
+        private Coroutine _gameOverCoroutine;
 
         static public int AppleScore
         {
@@ -58,8 +77,6 @@ namespace KnifeHit
                 Destroy(this);
             else
                 _instance = this;
-
-            DontDestroyOnLoad(this);
         }
         #endregion
 
@@ -73,18 +90,21 @@ namespace KnifeHit
 
         public static void GameOver()
         {
-            _instance.StartCoroutine(GameOverSequence());
+            if(_instance._gameOverCoroutine == null)
+                _instance._gameOverCoroutine = _instance.StartCoroutine(GameOverSequence());
         }
 
         private static IEnumerator GameOverSequence()
         {
-            SceneManager.UnloadSceneAsync("Game Scene");
+            SceneManager.UnloadSceneAsync("GameScene");
             _instance._gameOverScreen.SetActive(true);
             yield return new WaitForSeconds(3f);
-            SceneManager.LoadSceneAsync("Game Scene");
+            SceneManager.LoadSceneAsync("GameScene",LoadSceneMode.Additive);
             while(SceneManager.sceneCount<2)
                 yield return new WaitForSeconds(0.25f);
             _instance._gameOverScreen.SetActive(false);
+
+            _instance._gameOverCoroutine = null;
         }
 
     }

@@ -9,6 +9,12 @@ namespace KnifeHit
     {
         [SerializeField] Text _applesText;
 
+        private void Awake()
+        {
+            if(PlayerPrefs.HasKey("Apple Score"))
+                SetApplesCount(PlayerPrefs.GetInt("Apple Score"));
+        }
+
         public void SetApplesCount(int applesCount)
         {
             _applesText.text = applesCount.ToString();

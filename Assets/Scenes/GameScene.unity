@@ -487,7 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed0b604727fa624bb7ff88067489d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knivesText: {fileID: 0}
+  _knivesText: {fileID: 1782537296}
 --- !u!1 &514788367
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,14 +669,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageDatabase: {fileID: 11400000, guid: 07b729b277f11584ab5d9c4efad97305, type: 2}
-  _knivesThrownUI: {fileID: 429147592}
-  _stageKnivesUI: {fileID: 729501120}
-  _stageProgressionUI: {fileID: 1083114241}
-  _knifeThrower: {fileID: 1736887422}
   _appleScore: 2
   _goldenAppleScore: 4
   _stagePrefab: {fileID: 8536821382861006301, guid: 8352ee8027753f541bbe0fd2ad3ab165,
     type: 3}
+  _knivesThrownUI: {fileID: 429147592}
+  _stageKnivesUI: {fileID: 729501120}
+  _stageProgressionUI: {fileID: 1083114241}
+  _knifeThrower: {fileID: 1736887422}
   _knifeTransform: {fileID: 353528600}
   _stageTransform: {fileID: 1083114242}
 --- !u!4 &566716157
@@ -719,6 +719,8 @@ GameObject:
   m_Component:
   - component: {fileID: 729501119}
   - component: {fileID: 729501120}
+  - component: {fileID: 729501122}
+  - component: {fileID: 729501121}
   m_Layer: 5
   m_Name: Stage Knives
   m_TagString: Untagged
@@ -735,14 +737,14 @@ RectTransform:
   m_GameObject: {fileID: 729501118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.48999977}
-  m_LocalScale: {x: 0.0084999995, y: 0.0084999995, z: 0.0084999995}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 307434108}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -457, y: -745}
+  m_AnchoredPosition: {x: -456.1, y: -743.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &729501120
@@ -763,6 +765,44 @@ MonoBehaviour:
     type: 3}
   _emptyKnifeIcon: {fileID: 4536925911271733616, guid: 9951d92b84e026f429e632e773ac0c7a,
     type: 3}
+--- !u!114 &729501121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729501118}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 7586069352921318911, guid: 9951d92b84e026f429e632e773ac0c7a,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &729501122
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729501118}
+  m_CullTransparentMesh: 0
 --- !u!1 &825834832
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,7 +954,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207742420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0044263303, y: 2.0974114, z: 0}
+  m_LocalPosition: {x: -0.0044263303, y: 2.0974114, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

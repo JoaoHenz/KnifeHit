@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace KnifeHit
 {
@@ -10,20 +11,22 @@ namespace KnifeHit
     {
         public static bool IsPaused = true;
         public StageDatabase StageDatabase;
+        public float TargetRadius = 1.6f;
 
-        [SerializeField] UIKnivesThrown _knivesThrownUI;
-        [SerializeField] UIStageKnives _stageKnivesUI;
-        [SerializeField] UIStageProgression _stageProgressionUI;
-        [SerializeField] KnifeThrower _knifeThrower;
-        [SerializeField] int _appleScore = 2;
-        [SerializeField] int _goldenAppleScore = 4;
-        [SerializeField] GameObject _stagePrefab;
-        [SerializeField] Transform _knifeTransform;
-        [SerializeField] Transform _stageTransform;
+        [SerializeField] private int _appleScore = 2;
+        [SerializeField] private int _goldenAppleScore = 4;
+        [SerializeField] private UIKnivesThrown _knivesThrownUI;
+        [SerializeField] private UIStageKnives _stageKnivesUI;
+        [SerializeField] private UIStageProgression _stageProgressionUI;
+        [SerializeField] private KnifeThrower _knifeThrower;
+        [SerializeField] private Transform _knifeTransform;
+        [SerializeField] private Transform _targetTransform;
 
-        private int _normalStage = 0;
-        private int _bossStage = 0;
+        private int _normalStageIndex = 1;
+        private int _bossStageIndex = 0;
         private int _stagesCycle = 5;
+        private int _knivesThrown = 0;
+        private Stage _currentStage;
 
         #region singleton
         private static Game _instance;
@@ -33,10 +36,27 @@ namespace KnifeHit
                 Destroy(this);
             else
                 _instance = this;
-
-            DontDestroyOnLoad(this);
         }
         #endregion
+
+        public static void GameOver()
+        {
+            IsPaused = true;
+            Session.GameOver();
+        }
+
+        public static void OnThrowKnife()
+        {
+            _instance._knivesThrown++;
+            _instance._knivesThrownUI.SetKnivesCount(_instance._knivesThrown);
+            _instance._stageKnivesUI.HandleThrowKnife();
+        }
+
+        public static void OnHitTarget(GameObject knifeObject)
+        {
+            knifeObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            knifeObject.transform.parent = _instance._currentStage.transform;
+        }
 
         private void Awake()
         {
@@ -45,49 +65,51 @@ namespace KnifeHit
 
         private void Start()
         {
-            _normalStage = 1;
-            _bossStage = 1;
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("GameScene"));
             PlayNextStage();
         }
 
         private void PlayNextStage()
         {
-            int currentStage = _normalStage + _bossStage;
-            Stage stage;
+            int currentStageIndex = _normalStageIndex + _bossStageIndex;
+            GameObject stage;
 
-            if (currentStage % _stagesCycle > 0) //normal stage
+            if (currentStageIndex % _stagesCycle > 0) //normal stage
             {
-                stage = StageDatabase.GetStage(_normalStage).GetComponent<Stage>();
-                OnStageStart(stage, currentStage % _stagesCycle, currentStage);
-                _normalStage++;
+                stage = StageDatabase.GetStage(_normalStageIndex);
+                OnStageStart(stage.GetComponent<Stage>(), currentStageIndex % _stagesCycle, currentStageIndex);
+                CreateStage(stage, currentStageIndex);
+                if(currentStageIndex % _stagesCycle == _stagesCycle-1)
+                    _bossStageIndex++;
+                else
+                    _normalStageIndex++;
             }
             else //boss
             {
-                stage = StageDatabase.GetBossStage(_bossStage).GetComponent<Stage>();
-                OnStageStart(stage, _stagesCycle, currentStage);
-                _bossStage++;
+                stage = StageDatabase.GetBossStage(_bossStageIndex);
+                OnStageStart(stage.GetComponent<Stage>(), _stagesCycle, currentStageIndex);
+                CreateStage(stage, currentStageIndex);
+                _normalStageIndex++;
             }
 
             Game.IsPaused = false;
         }
 
-        private void OnStageStart(Stage stage,int stageCount, int currentStage)
+        private void OnStageStart(Stage stage,int stageCount, int currentStageIndex)
         {
-            _stageProgressionUI.HandleStageStart(stageCount,currentStage,stage.Name);
+            _stageProgressionUI.HandleStageStart(stageCount, currentStageIndex, stage.Name);
             _stageKnivesUI.HandleStageStart(stage.Knives);
             _knifeThrower.HandleStageStart(stage.Knives);
         }
 
-        private void CreateStage(Stage stage,int currentStage)
+        private void CreateStage(GameObject stage,int currentStageIndex)
         {
-            GameObject instance = Instantiate(_stagePrefab);
-            stage = instance.AddComponent(stage.GetType()) as Stage;
-            stage.StageStart(currentStage);
+            GameObject instance = Instantiate(stage);
+            _currentStage = instance.GetComponent<Stage>();
+            _currentStage.StageStart(currentStageIndex);
+            instance.transform.position = _targetTransform.position;
+
         }
-        public static void GameOver()
-        {
-            IsPaused = true;
-            Session.GameOver();
-        }
+        
     }
 }

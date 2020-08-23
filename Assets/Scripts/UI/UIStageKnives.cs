@@ -11,7 +11,7 @@ namespace KnifeHit
         [SerializeField] private Sprite _fullKnifeIcon;
         [SerializeField] private Sprite _emptyKnifeIcon;
 
-        private float _nextKnifeVertDist = 7354f;
+        private float _nextKnifeVertDist = 60;
         private int _knifeIndex = 0;
         private List<GameObject> _iconList = new List<GameObject>();
 
@@ -29,11 +29,11 @@ namespace KnifeHit
             for(i = 0; i < stageKnives; i++)
             {
                 GameObject knifeIcon = Instantiate(_knifeIcon,transform);
-                knifeIcon.transform.position = new Vector3(0,i*_nextKnifeVertDist,0);
+                knifeIcon.transform.localPosition = new Vector3(0,i*_nextKnifeVertDist,0);
 
                 _iconList.Add(knifeIcon);
             }
-            _knifeIndex = i;
+            _knifeIndex = i-1;
         }
 
         public void HandleThrowKnife()

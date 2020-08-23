@@ -33,8 +33,6 @@ namespace KnifeHit
                 Destroy(this);
             else
                 _instance = this;
-
-            DontDestroyOnLoad(this);
         }
         #endregion
 
@@ -60,15 +58,22 @@ namespace KnifeHit
         private void Awake()
         {
             SingletonAwake();
+            GameObject objectPools = new GameObject();
+            objectPools.transform.parent = transform;
+            objectPools.name = "Object Pools";
 
             foreach(ObjectPoolEntry entry in ObjectPoolEntries)
             {
+                GameObject pool = new GameObject();
+                pool.transform.parent = objectPools.transform;
+                pool.name = entry.GameObject.name;
+
                 ObjectPool objectPool = new ObjectPool();
                 List<GameObject> objectList = new List<GameObject>();
 
                 for (int i = 0; i < entry.Amount; i++)
                 {
-                    objectList.Add(Instantiate(entry.GameObject,transform));
+                    objectList.Add(Instantiate(entry.GameObject, pool.transform));
                 }
 
                 objectPool.PooledObjects = objectList;
