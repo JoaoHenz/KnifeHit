@@ -9,7 +9,19 @@ namespace KnifeHit
     {
         protected override IEnumerator TargetBehaviour()
         {
-            yield return new WaitForSeconds(0f);
+            float direction = _currentStage % 2 == 0? 1 : -1;
+
+            while (true)
+            {
+                _rigidBody.AddTorque(direction*(1 + (_currentStage / 15)));
+
+                while(_rigidBody.angularVelocity < 0.1f)
+                {
+                
+                }
+                yield return new WaitForSeconds(2f / (_currentStage / 15));
+            }
+            
         }
     }
 }

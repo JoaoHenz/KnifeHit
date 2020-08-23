@@ -18,12 +18,25 @@ namespace KnifeHit
         public int Index = 0;
     }
 
-    [System.Serializable]
-    public class PoolManager
+    public class PoolManager : MonoBehaviour
     {
         public ObjectPoolEntry[] ObjectPoolEntries;
 
         [SerializeField] private static Dictionary<string, ObjectPool> _objectPools = new Dictionary<string, ObjectPool>();
+
+
+        #region singleton
+        private static PoolManager _instance;
+        private void SingletonAwake()
+        {
+            if (_instance)
+                Destroy(this);
+            else
+                _instance = this;
+
+            DontDestroyOnLoad(this);
+        }
+        #endregion
 
         /// <summary>
         /// Gets an object from a pool, if there is a pool of this object
@@ -40,20 +53,24 @@ namespace KnifeHit
 
             ObjectPool objectPool = _objectPools[name];
             objectPool.Index = (objectPool.Index + 1 < objectPool.PooledObjects.Count) ? objectPool.Index + 1 : 0;
+            objectPool.PooledObjects[objectPool.Index].SetActive(true);
             return objectPool.PooledObjects[objectPool.Index];
         }
 
-        public void Awake()
+        private void Awake()
         {
+            SingletonAwake();
+
             foreach(ObjectPoolEntry entry in ObjectPoolEntries)
             {
                 ObjectPool objectPool = new ObjectPool();
                 List<GameObject> objectList = new List<GameObject>();
-                int i;
-                for (i = 0; i < entry.Amount; i++)
+
+                for (int i = 0; i < entry.Amount; i++)
                 {
-                    objectList.Add(entry.GameObject);
+                    objectList.Add(Instantiate(entry.GameObject,transform));
                 }
+
                 objectPool.PooledObjects = objectList;
                 _objectPools[entry.GameObject.name] = objectPool;
             }

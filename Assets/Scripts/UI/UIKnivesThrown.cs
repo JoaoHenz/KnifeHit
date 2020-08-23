@@ -7,6 +7,11 @@ namespace KnifeHit
 {
     public class UIKnivesThrown : MonoBehaviour
     {
-        
+        [SerializeField] Text _knivesText;
+
+        public void SetKnivesCount(int knivesCount)
+        {
+            _knivesText.text = knivesCount.ToString();
+        }
     }
 }

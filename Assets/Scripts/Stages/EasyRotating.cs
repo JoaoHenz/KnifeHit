@@ -9,6 +9,8 @@ namespace KnifeHit
     {
         protected override IEnumerator TargetBehaviour()
         {
+            float direction = _currentStage % 2 == 0 ? 1 : -1;
+            _rigidBody.angularVelocity = direction * (1 + (_currentStage / 15));
             yield return new WaitForSeconds(0f);
         }
     }

@@ -13,7 +13,7 @@ namespace KnifeHit
 
         private float _nextKnifeVertDist = 7354f;
         private int _knifeIndex = 0;
-        private List<GameObject> _iconList;
+        private List<GameObject> _iconList = new List<GameObject>();
 
         public void HandleStageStart(int stageKnives)
         {
@@ -28,7 +28,7 @@ namespace KnifeHit
             int i;
             for(i = 0; i < stageKnives; i++)
             {
-                GameObject knifeIcon = Instantiate(_knifeIcon);
+                GameObject knifeIcon = Instantiate(_knifeIcon,transform);
                 knifeIcon.transform.position = new Vector3(0,i*_nextKnifeVertDist,0);
 
                 _iconList.Add(knifeIcon);
