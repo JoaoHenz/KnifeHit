@@ -93,9 +93,9 @@ namespace KnifeHit.Game
             {
                 Session.SoundManager.PlaySound("DM-CGS-12");
                 stage = StageDatabase.GetStage(_normalStageIndex);
-                OnStageStart(stage.GetComponent<Stage>(), currentStageIndex % _stagesCycle, currentStageIndex);
                 CreateStage(stage, currentStageIndex);
-                if(currentStageIndex % _stagesCycle == _stagesCycle-1)
+                OnStageStart(_currentStage, currentStageIndex % _stagesCycle, currentStageIndex);
+                if (currentStageIndex % _stagesCycle == _stagesCycle-1)
                     _bossStageIndex++;
                 else
                     _normalStageIndex++;
@@ -104,8 +104,8 @@ namespace KnifeHit.Game
             {
                 Session.SoundManager.PlaySound("DM-CGS-36");
                 stage = StageDatabase.GetBossStage(_bossStageIndex);
-                OnStageStart(stage.GetComponent<Stage>(), _stagesCycle, currentStageIndex);
                 CreateStage(stage, currentStageIndex);
+                OnStageStart(_currentStage, _stagesCycle, currentStageIndex);
                 _normalStageIndex++;
             }
 
@@ -114,17 +114,16 @@ namespace KnifeHit.Game
 
         private void OnStageStart(Stage stage,int stageCount, int currentStageIndex)
         {
-            int knives = (stage.Knives + currentStageIndex / 3 > 20) ? 20 : stage.Knives + currentStageIndex / 3;
-
             _stageProgressionUI.HandleStageStart(stageCount, currentStageIndex, stage.Name);
-            _stageKnivesUI.HandleStageStart(knives);
-            _knifeThrower.HandleStageStart(knives);
+            _stageKnivesUI.HandleStageStart(stage.Knives);
+            _knifeThrower.HandleStageStart(stage.Knives);
         }
 
         private void CreateStage(GameObject stage,int currentStageIndex)
         {
             GameObject instance = Instantiate(stage);
             _currentStage = instance.GetComponent<Stage>();
+            _currentStage.Knives = (_currentStage.Knives + currentStageIndex / 3 > 20) ? 20 : _currentStage.Knives + currentStageIndex / 3;
             _currentStage.StageStart(currentStageIndex);
             instance.transform.position = _targetTransform.position;
         }
