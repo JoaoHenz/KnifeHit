@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace KnifeHit
+namespace KnifeHit.Game
 {
     /// <summary>
     /// Sandbox subclass of Stage

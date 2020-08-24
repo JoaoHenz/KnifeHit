@@ -670,8 +670,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageDatabase: {fileID: 11400000, guid: 07b729b277f11584ab5d9c4efad97305, type: 2}
   TargetRadius: 1.6
-  _appleScore: 2
-  _goldenAppleScore: 4
   _knivesThrownUI: {fileID: 429147592}
   _stageKnivesUI: {fileID: 729501120}
   _stageProgressionUI: {fileID: 1083114241}

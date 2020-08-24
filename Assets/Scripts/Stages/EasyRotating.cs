@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace KnifeHit
+namespace KnifeHit.Game
 {
     /// <summary>
     /// Sandbox subclass of Stage

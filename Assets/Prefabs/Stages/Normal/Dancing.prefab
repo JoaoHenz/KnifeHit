@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _testItems: 0
-  Knives: 5
+  Knives: 6
   ApplePositions: 030000000a0000000d0000000f00000012000000
   GoldenApplePositions: 
   KnifePositions: 

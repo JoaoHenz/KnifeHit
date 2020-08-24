@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace KnifeHit
+namespace KnifeHit.Game
 {
     [CreateAssetMenu(fileName = "New Stage Database", menuName = "Databases/Stage Database")]
     public class StageDatabase : ScriptableObject
